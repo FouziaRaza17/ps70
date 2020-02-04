@@ -1,3 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Week 1 - PS70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #313131;
+      padding: 25px;
+    
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 <div class="jumbotron text-center">
     <h1>Project Idea</h1>
     <p>This is a preliminary plan!</p>
@@ -6,14 +58,24 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <h3>Device:</h3>
-        <p>Soft robotic wearable that records muscle activity</p>
+        <h2>Device:</h2>
+        <p>Insoles made out of silicone that can sense pressure and the amount of 
+          force exerted on the sensors</p>
       </div>
       <div class="col-sm-4">
-        <h2>Details</h2>
-        <p>The device will be made out of silicone rubber and can easily 
-            wrap around your leg to record the activity of certain muscles; 
-            comparable to soft, wearable EMG device </p>
+        <h3>Details</h3>
+        <p>The device will be able to record the amount of force exerted with each
+          step and give data on the wearer's plantaflexion and dorsiflexion through 
+          ankle kinematics. </p>
+          <p>
+            I plan on using the Teensy 3.2 connecting to electrodes and a Bluetooth module 
+            that connects to the wearer's app. 
+          </p>
       </div>
     </div>
-  </div>
+  </div><br><br>
+
+  <footer class="container-fluid text-center">
+    <p style='color:#ffffff;'>Powered by electricity</p>
+  
+  </footer>

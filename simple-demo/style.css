@@ -1,7 +1,7 @@
 body {
-  font: 20px Montserrat, sans-serif;
+  font: 20px "Comic Sans", sans-serif;
   line-height: 1.8;
-  color: red;
+  color: rgb(60, 211, 30);
 }
 
 p {font-size: 16px;}
