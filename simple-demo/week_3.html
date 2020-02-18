@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Week 3 - PS70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #313131;
+      padding: 25px;
+      bottom: 0
+    
+    }
+
+    .jumbotron{
+    background-color: rgb(82, 23, 23);
+    color: rgb(255, 255, 255)
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="./index.html">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1 style="font-family:gerogia;">2D Design & Cutting</h1>
+    <p style="font-family:verdana;">The Jewelry Tree</pstyle="font-family:gerogia;">
+    
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <h3>Assignment</h3>
+        <p> This week's assignment was to design and create a press-fit construction kit using a laser cutter. </p>
+        <p> </p>
+        <h4>Materials and Software Used</h4>
+        <p>Laser cutter, Fusion 360, Adobe Illustrator, Inkscape, vinyl cutter</p><br>
+
+        <h3>Background</h3>
+        <p>A laser cutter is a tool used to make precise cuts on materials by directing the output of a high power laser.
+            After creating the cut on a CAD software, one can customize the settings of the laser cutter by altering the 
+            following parameters: 
+            <p>&Tab; <b>Speed:</b> how fast the laser makes the cut; a lower speed is better for finer details </p><p></p>
+            <p>&Tab; <b>Power:</b> intensity of the laser beam; careful though -- too much and you'll need a fire extinguisher!</pre></p>
+            <p>Other terms that were discussed: </p>
+            <p>&Tab;<b>Kerf:</b> the amount of material cut out in addition to the cuts made due to the laser burns.<p>
+            <p>&Tab; <b>CAD Parameters:</b> defining parameters is an important practice that should be employed in each CAD project
+                so it can be easy to alter later in the project if need be <p>
+            <p>&Tab; <b>Fillets:</b> rounded corners or edges that are used to reduce stress or get rid of sharp angles. </p>
+        </p><br>
+
+        <h3>My Press Fit Construction</h3>
+        <p>Inspired by a design done earlier in the MIT Fab Lab, the jewelry tree comes after my roommate was attempting to
+            organize her necklaces and earings which very much sit in a jumbled pile on her vanity.  
+        </p>
+        <p>I decided to use Adobe Illustrator to create the shape of the tree since I already have some experience in
+            navigating the software and can be used to make precise curves and edges. 
+        </p><br>
+
+      </div>
+    <div class = "container">
+      <div class="row">
+        <div class="col-sm-6">
+        <p>Using the design mentioned above, I used the general shape of the leaves and the tree but customized the 
+            branches in a way that was easier to create with the pen tool on Illustrator. After finding the thickness of 
+            the cardboard (4.42 mm), I created the notches on the leaves and branches as well as the tree bark, making sure 
+            to make the widths slightly smaller to account for the kerf (this was done mostly through approximation).  
+         </p>
+         <p>It was difficult to navigate the pen with the given constraints but I was able to work my way around by creating 
+             my own ruler using the rectangle tool (the rulers weren't that accurate and required some eye straining...). </p>
+        </div>
+        <div class="col-sm-6">
+        <img src="illustrator.png" 
+        class="img-responsive" style="width:100%" alt="Image">
+        </div>
+      </div><br><br><br>
+
+        <div class = "container">
+            <div class="row">
+              <div class="col-sm-6">
+                <img src="lasercutgif.gif" 
+                class="img-responsive" style="width:100%" alt="lasercutgif">
+              </div>
+              <div class="col-sm-6">
+                <p>Using the design mentioned above, I used the general shape of the leaves and the tree but customized the 
+                    branches in a way that was easier to create with the pen tool on Illustrator. After finding the thickness of 
+                    the cardboard (4.42 mm), I created the notches on the leaves and branches as well as the tree bark, making sure 
+                    to make the widths slightly smaller to account for the kerf (this was done mostly through approximation).  
+                 </p>
+                 <p>It was difficult to navigate the pen with the given constraints but I was able to work my way around by creating 
+                     my own ruler using the rectangle tool (the rulers weren't that accurate and required some eye straining...). </p>
+
+                <p>I set the minimum power to 100%, the max power to 100%, and the speed to 50 (need units).</p>
+                
+              </div>   
+
+    </div><br><br><br>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+              <h4>The pieces after the cut:</h3>
+                <p>It turned out a lot better than I thought and I was quite surprised that my approximations led to perfect fits 
+                    for all of the leaves! Some of the branches were a little too thin at the ends and so some of it broke off
+                    but hey, if you can't see it, it doesn't exist!
+                </p>
+            <center><img src="halfTree2.jpg" 
+                class="centerImage" style="width:50%" alt="lasercut"></center>
+          </div>
+        </div>
+    </div><br><br><br>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+              <h3>And walla! The finished product:</h3><br>
+              <center><img src="tree2_comp.jpg" 
+                class="centerImage" style="width:50%" alt="lasercut"></center>
+          </div>
+        </div>
+    </div>
+</div><br><br><br><br><br>
+<footer class="container-fluid text-center">
+    <p style='color:#ffffff;'>Powered by electricity</p>
+  
+  </footer>
+</body>
+</html>
