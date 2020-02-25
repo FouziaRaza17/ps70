@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Week 4 - PS70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #313131;
+      padding: 25px;
+      bottom: 0
+    
+    }
+
+    .jumbotron{
+    background-color: rgb(82, 23, 23);
+    color: rgb(255, 255, 255)
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1 style="font-family:gerogia;">Microcontroller Programming</h1>
+    <p style="font-family:verdana;">Let's move!</pstyle="font-family:gerogia;">
+    
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <h3>Assignment</h3>
+        <p> This week's assignment was to program a microcontroller to do something. </p>
+        <p> </p>
+        <h4>Materials and Software Used</h4>
+        <p>Arduino Uno, Arduino/C, soldering, breadboard, infrared sensor, motor driver</p><br>
+
+        <h3>Background</h3>
+        <p>Arduino Uno is a microcontroller based on a single integrated circuit chip that can take inputs from modules such sensors and motors and porduce a desired output.  
+            
+
+        <h3>Making my Uno do something</h3>
+        <p>I wanted to initially make a tiny skateboard that would coast autonomously, come to a stop if it came close to an object, and then go backwards.  
+        </p>
+        <p>But... time constraints! YAY! So I decided to just make a motor rotate based on the values outputted by the infrared sensor.
+        </p><br>
+
+      </div>
+    <div class = "container">
+      <div class="row">
+        <div class="col-sm-6">
+        <p>After connecting my Arduino to my computer, I threw on the infrared sensor onto the breadboard, gave it some power, and wallah! We had sensor 
+            readings in no time! Easy.  
+         </p>
+         <p>Then I decided to throw on the motor. This was at first a little difficult since the motors I had took in 6V and I could only 
+             output 5V from the Uno. Instead of looking for a bunch of stuff (i.e. transistors, diodes, resistors) to connect my motor, I found a motor 
+            driver instead! I quickly hooked that up (even though the connections were giving me a pain) and woo -- had a spinning motor shaft! </p>
+        </div>
+        <div class="col-sm-6">
+        <img src="breadboard.jpg" 
+        class="img-responsive" style="width:100%" alt="Image">
+        </div>
+      </div><br><br><br>
+
+        <div class = "container">
+            <div class="row">
+              <div class="col-sm-6">
+                <img src="motor_gif.gif" 
+                class="img-responsive" style="width:100%" alt="spinmotor">
+              </div>
+              <div class="col-sm-6">
+                <p>The motor driver unfortunately can only take two motors so I might have to use another if I do decide to continue 
+                    working on a skateboard. Fortunately, the shaft was able to spin this wooden ball that that I was about to use as 
+                    the wheels before Rob saved the day with Lego wheels! 
+                 <p>I have never been so happy for Lego wheels. Long live Lego lovers! </p>
+               
+              </div>   
+
+    </div><br><br><br>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+              <h4>The Rotating Motor</h3>
+                <p>After assigning the pin values to the variables I used in my code, I made a loop that ran on forever, taking the 
+                    sensor values and comparing it to the number 10 (cm away from the sensor). I used an if statement to make the 
+                    motor spin clockwise at maximum speed if the sensor values were outputting values greater than 10 and made the 
+                    motor stop spinning if the values read less than 10 (object comes too close to the board). 
+                </p>
+            <center><img src="rotating_motor.gif" 
+                class="centerImage" style="width:50%" alt="lasercut"></center>
+          </div>
+        </div>
+    </div><br><br><br>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+              <h3>The finished product:</h3><br>
+              <center><img src="motor_final.gif" 
+                class="centerImage" style="width:50%" alt="lasercut"></center>
+          </div>
+        </div>
+    </div>
+</div><br><br><br><br><br>
+<footer class="container-fluid text-center">
+    <p style='color:#ffffff;'>Powered by electricity</p>
+  
+  </footer>
+</body>
+</html>
