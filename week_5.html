@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Week 5 - PS70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #313131;
+      padding: 25px;
+      bottom: 0px
+    
+    }
+
+    .jumbotron{
+    background-color: rgb(82, 23, 23);
+    color: rgb(255, 255, 255)
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1 style="font-family:gerogia;">3D Printing</h1>
+    <p style="font-family:verdana;">Zoom! Zoom!</pstyle="font-family:gerogia;">
+    
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <h3>Assignment</h3>
+        <p> This week's assignment was to learn how to use a slicer and 3D printer to make objects that would otherwise be 
+            much more difficult to fabricate using subtractive methods. </p>
+        <p> </p>
+        <h4>Materials and Software Used</h4>
+        <p>Multimaker, Prusa, Prusa/Multimaker Slicer software, PLA, Sense Scanner</p><br>
+
+        <h3>Background</h3>
+        <p>3D printing is the process that builds a 3-dimensional object from a computer-aided design model by adding material,
+            often some type of plastic, through a process called additive manufacturing. Due to  budget constraints, 
+            Harvard allows its students the finest of printers -- Multimaker 2+ and Prusa i3 -- and if you're kind enough, one of the 
+            Formlabs printers, which use resin-based material. 
+        </p> <br><br> 
+            
+
+        <h3>Arduino Uno Enclosure</h3>
+        <p>Continuing with the goal of making a tiny autonomous skateboard, I decided to design and print an enclosure for the Arduino Uno 
+            which will be microcontroller driving the four-wheeled plank. The Uno is easy to use, debug, and has an extensive docummentation online
+            (it's also available for free in lab!) so that was a nobrainer. Only anoying thing -- this boy is pretty big. The skateboard will 
+            be slightly larger than tiny.   
+        </p>
+        <p>But... here is the finished product! Following the Fusion360 tutorials online, I created two rectangles that were then extruded 
+            and joined with inserts/standoffs that were placed at the exact locations of the holes on the Uno board. Surprisingly, it was a 
+            perfect fit! 
+        </p><br>
+
+      </div>
+    <div class = "container">
+      <div class="row">
+        <div class="col-sm-3">
+        <p>After importing the Uno onto Fusion (thank you to whoever decided to create the Uno on Fusion from scratch -- hope you are earning
+            big bucks at your engineering gig), I projected it onto one of the sides to create the connecting ports which extrude from the 
+            box. I could have added some creative design on the top but I want to keep it simple and don't want extraneous material from landing 
+            into the box -- plus, it will be glued onto the bottom of the board so you won't be able to see that side anyway.   
+         </p>
+         <p> </p>
+            </div>
+        <div class="col-sm-3">
+            <img src="cad_uno.png" 
+            class="img-responsive" style="width:100%" alt="Image">
+            </div>
+        <div class="col-sm-3">
+            <img src="box_open.jpg" 
+            class="img-responsive" style="width:100%" alt="Image">
+            </div>
+        <div class="col-sm-3">
+            <img src="box_ports.jpg" 
+            class="img-responsive" style="width:100%" alt="Image">
+            </div>
+      </div><br><br>
+
+      
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+                <h3>Scanning a 3D Printer</h3>
+                <p>After assigning the pin values to the variables I used in my code, I made a loop that ran on forever, taking the 
+                    sensor values and comparing it to the number 10 (cm away from the sensor). I used an if statement to make the 
+                    motor spin clockwise at maximum speed if the sensor values were outputting values greater than 10 and made the 
+                    motor stop spinning if the values read less than 10 (object comes too close to the board). 
+                </p>
+
+                <p>The key was to angle it in a way that allowed most of the object to fall within the circle enclosure. It worked 
+                    some but the finished product was far from the real object. Ah welp. 
+                </p>
+</div><br><br>
+<div class = "container">
+    <div class="row">
+      <div class="col-sm-6">
+          <img src="scan_vid.gif" 
+          class="img-responsive" style="width:100%" alt="Image">
+          <br><br>
+          </div>
+      <div class="col-sm-6">
+          <img src="filled_holes.jpg" 
+          class="img-responsive" style="width:100%" alt="Image">
+          <br>
+          <img src="finished_scan.jpg" 
+          class="img-responsive" style="width:100%" alt="Image">
+          <img src="prusa.png" 
+          class="img-responsive" style="width:100%" alt="Image">
+          </div>
+    </div><br><br><br>
+
+    <div class = "container">
+        <div class="row">
+          <div class="col-sm-6">
+          <h3>The Jumping Dinosaur</h3>
+          <p>Hate it when you don't have Wifi? I kinda don't and so I printed this guy. Took only 15 minutes and can be used
+              as a keychain! No, it doesn't jump over cacti.    
+           </p>
+           <p> </p>
+              </div>
+          <div class="col-sm-6">
+              <img src="cad_uno.png" 
+              class="img-responsive" style="width:100%" alt="Image">
+              </div>
+          
+        </div><br><br>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+              <h3>Zoom! Zoom!</h3><br>
+              <p>Something that is a lot easier to make through additive manufacturing is plastic wheels (compared to rubber which is 
+                  easier to mold). Wheels can be difficult to shape with complete precisions and are simple to create in CAD software. 
+                  Plus, I need them for my skateboard. 
+             </p>
+
+            <p>This is a simple protoytpe for now. I plan on making a 3 mm hole in the wheel to allow the 
+                motor shaft to go through, but since this was just a test, I decided to leave it out! 
+                The diameter was slightly larger than I was intending and the thickness was insufficient
+                to support any tiny human on this planet. On the plus side, it rolls!
+            </p><br>
+             <p> </p>
+                </div>
+            <div class="col-sm-6">
+                <img src="wheel.jpg" 
+                class="img-responsive" style="width:100%" alt="Image">
+                </div>
+            <div class="col-sm-6">
+                <img src="rolling_wheel.gif" 
+                class="img-responsive" style="width:70%" alt="Image">
+                </div>
+            
+          </div><br><br>
+</div><br><br><br><br><br>
+<footer class="container-fluid text-center">
+<p style='color:#ffffff;'>Powered by electricity</p>
+</footer>
+
+</body>
+</html>
