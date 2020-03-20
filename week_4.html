@@ -38,14 +38,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Portfolio</a>
+      <a class="navbar-brand" href="./index.html">Portfolio</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./gallery.html">Gallery</a></li>
-        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="https://nathanmelenbrink.github.io/ps70/index.html">PS 70</a></li>
       </ul>
       
     </div>
@@ -54,48 +54,98 @@
 
 <div class="jumbotron text-center">
     <h1 style="font-family:gerogia;">Microcontroller Programming</h1>
-    <p style="font-family:verdana;">Let's move!</pstyle="font-family:gerogia;">
-    
-  </div>
+    <p style="font-family:verdana;">Let's move!</pstyle="font-family:gerogia;">   
+</div>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-
-        <h3>Assignment</h3>
-        <p> This week's assignment was to program a microcontroller to do something. </p>
-        <p> </p>
-        <h4>Materials and Software Used</h4>
-        <p>Arduino Uno, Arduino/C, soldering, breadboard, infrared sensor, motor driver</p><br>
-
-        <h3>Background</h3>
-        <p>Arduino Uno is a microcontroller based on a single integrated circuit chip that can take inputs from modules such sensors and motors and porduce a desired output.  
-            
-
-        <h3>Making my Uno do something</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Assignment</h3>
+        <p> This week's assignment was to program a microcontroller to do something. </p><br>
+      <h4>Materials and Software Used</h4>
+        <p>Arduino Uno, Arduino/C, breadboard, ultrasonic range sensor, motor driver, soldering</p><br>
+      <h3>Background</h3>
+        <p>Microcontrollers such as the Arduino Uno and the Itsy Bitsy M4 are based on a single integrated circuit chip 
+          that can take inputs from modules such as sensors and switches and porduce a desired output through an actuator, 
+          bulb, buzzer, speaker, or solenoid, to name a few.  </p><br>
+      <h3>Making my Uno do something</h3>
         <p>I wanted to initially make a tiny skateboard that would coast autonomously, come to a stop if it came close to an object, and then go backwards.  
         </p>
-        <p>But... time constraints! YAY! So I decided to just make a motor rotate based on the values outputted by the infrared sensor.
-        </p><br>
+        <p>But... time constraints! YAY! So I decided to just make a motor rotate based on values outputted by the ultrasonic sensor.
+        </p>
+    </div>
+  </div>
+</div><br>
 
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="uno.jpg" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>Ardunio Uno</h4>
+      <p>The Ardunio Uno is one of the easiest microcontrollers to use (and is why the microncontroller of choice for most beginners).
+        It has 14 digital input/output pins (6 of which can be used as PWM outputs), and 6 analog inputs. It is easily 
+        programmable with the Ardunio IDE via a USB cable or 9V battery. I will be using a few of the digital pins for the 
+        motor driver and ultrasonic sensor and the power and ground pins for my circuit.   </p><br>
+      <h4>Arduino Uno Pinout</h4><br>
+      <img src="uno_pinout.png" 
+      class="img-responsive" style="width:80%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <img src="sensor.jpg" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>HC-SR04 Ultrasonic Sensor</h4>
+      <p>The only type of ultrasonic range sensor that I could find in the lab was the Arduino HC-SR04 (Ultra-sonic "ping" senosr),
+        which easily connected to the Ardunio Uno which were plenty on hand. Ultrasound waves are high-pitched 
+      sound waves whose frequencies are beyond the audible limit of human hearing. This sensor is composed of two 
+      ultrasonic transducers -- one that trasmits the converted electrical signal to utrasound waves and one that receives 
+      the transmitted pulses, producing an output proportional to the distance the pulse travelled.   </p><br>
+      <h4>L298 Motor Driver Pinout</h4><br>
+      <img src="sensor_pinout.png" 
+      class="img-responsive" style="width:80%" alt="Image">
       </div>
-    <div class = "container">
-      <div class="row">
-        <div class="col-sm-6">
-        <p>After connecting my Arduino to my computer, I threw on the infrared sensor onto the breadboard, gave it some power, and wallah! We had sensor 
-            readings in no time! Easy.  
-         </p>
-         <p>Then I decided to throw on the motor. This was at first a little difficult since the motors I had took in 6V and I could only 
-             output 5V from the Uno. Instead of looking for a bunch of stuff (i.e. transistors, diodes, resistors) to connect my motor, I found a motor 
-            driver instead! I quickly hooked that up (even though the connections were giving me a pain) and woo -- had a spinning motor shaft! </p>
-        </div>
-        <div class="col-sm-6">
-        <img src="breadboard.jpg" 
-        class="img-responsive" style="width:100%" alt="Image">
-        </div>
-      </div><br><br><br>
+    <div class="col-sm-4">
+      <img src="motor_driver.jpg" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>L298 Motor Driver Module</h4>
+      <p>With most microncontrollers like the Arduino, driving an LED is no problem since the current draw is so low (about 
+        20 mA). Driving a DC motor, however, requires a lot of current (the motor I will be using has no-load current of 70mA).
+        This is where motor drivers come in. This motor driver has an H-bridge which allows for direction control and another 
+        source of power supply that is sufficient to drive the 6V motor (the Uno can only output a maximum of 5V). The driver has 
+        four inputs, but since I will be using only one motor, I will only be needing two of these. </p><br>
+        <h4>L298 Motor Driver Pinout</h4><br>
+        <img src="motor_driver_pinout.png" 
+      class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br><br><br>
 
-        <div class = "container">
+
+
+
+
+
+
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-6">
+      <p>After connecting my Arduino to my computer, I threw on the infrared sensor onto the breadboard, gave it some power, and wallah! We had sensor 
+          readings in no time! Easy.  
+      </p>
+      <p>Then I decided to throw on the motor. This was at first a little difficult since the motors I had took in 6V and I could only 
+          output 5V from the Uno. Instead of looking for a bunch of stuff (i.e. transistors, diodes, resistors) to connect my motor, I found a motor 
+          driver instead! I quickly hooked that up (even though the connections were giving me a pain) and woo -- had a spinning motor shaft! </p>
+    </div>
+    <div class="col-sm-6">
+      <img src="breadboard.jpg" 
+      class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br><br><br>
+
+
+<div class = "container">
             <div class="row">
               <div class="col-sm-6">
                 <img src="motor_gif.gif" 

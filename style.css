@@ -4,8 +4,8 @@ body {
   color: rgb(60, 211, 30);
 }
 
-footer {font-size: 16px;}
-.margin {margin-bottom: 15px;}
+footer {font-size: 16px; left: 0}
+.margin {margin-bottom: 20px;}
 
 .container-fluid {
 padding: 30px;
@@ -17,10 +17,7 @@ img.resize {
   max-height:50%;
 }
 
-.rotate90 {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+.rotated {
+  transform: rotate(90deg); /* Equal to rotateZ(45deg) */
+  background-color: pink;
 }
