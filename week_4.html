@@ -113,54 +113,96 @@
         This is where motor drivers come in. This motor driver has an H-bridge which allows for direction control and another 
         source of power supply that is sufficient to drive the 6V motor (the Uno can only output a maximum of 5V). The driver has 
         four inputs, but since I will be using only one motor, I will only be needing two of these. </p><br>
-        <h4>L298 Motor Driver Pinout</h4><br>
-        <img src="motor_driver_pinout.png" 
+      <h4>L298 Motor Driver Pinout</h4><br>
+      <img src="motor_driver_pinout.png" 
       class="img-responsive" style="width:100%" alt="Image">
     </div>
   </div>
-</div><br><br><br>
-
-
-
-
-
-
-
+</div><br><br><br><br>
 
 <div class = "container">
   <div class="row">
+    <h3>Putting it Together</h3>
+    <div class="col-sm-12">
+      <br><p>Using the pinout diagrams below, I wired the motor driver to the Uno together based on the following circuit 
+        diagram (minus the battery): </p>
+      <img src="motor_driver_wiring.jpg" 
+      class="img-responsive" style="width:100%" alt="Image"><br>
+      <p>To do this, I first soldered a red and black wire to each of the motor pins to connect to the input pins on the 
+        motor driver. Because of my limited number of limbs, I was unable to take pictures of my soldering work (that would
+        have been completely unsafe as well).</p> 
+    </div>
+  </div>
+</div><br><br>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h4>Pololu Micro Metal Gearmotor HP 6V</h4>
+      <img  src="pololu_motor.jpg" 
+      class="horizontalcenter;" style="width:50%; display:block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+      <p>This gearmotor is a miniature high-power, 6 V brushed DC motor with a 4.995:1 metal gearbox. It has a cross section 
+        of 10 × 12 mm, and the D-shaped gearbox output shaft is 9 mm long and 3 mm in diameter.</p>
+    </div>
+    <div class="col-sm-4">
+      <img src="soldered_motor.jpeg" 
+      class="img-responsive" style="width:95%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <img src="md_wired.png" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> <br>
+    </div>
+  </div>
+</div><br><br>
+      
+<div class = "container">
+  <div class="row">
+    <h4>Code for rotating motor</h4><br>
     <div class="col-sm-6">
-      <p>After connecting my Arduino to my computer, I threw on the infrared sensor onto the breadboard, gave it some power, and wallah! We had sensor 
-          readings in no time! Easy.  
-      </p>
-      <p>Then I decided to throw on the motor. This was at first a little difficult since the motors I had took in 6V and I could only 
-          output 5V from the Uno. Instead of looking for a bunch of stuff (i.e. transistors, diodes, resistors) to connect my motor, I found a motor 
-          driver instead! I quickly hooked that up (even though the connections were giving me a pain) and woo -- had a spinning motor shaft! </p>
+      <img src="motor_code.png" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br>
     </div>
     <div class="col-sm-6">
-      <img src="breadboard.jpg" 
-      class="img-responsive" style="width:100%" alt="Image">
+      <p>After configuring the Ardunio IDE to connect to the Uno via the COM port, I began to initialize the pins being used.
+        Since I was only using one motor, I only had to initalize to pins at first (the other pins are for the ultrasonic sensor, 
+        which I will get back to later). Pin 9 was connected to Input 1 and Pin 8 was connected to Input 2 on the motor driver. The 
+        output pins on the driver were then connected to the red and black wires that I had soldered onto the motor earlier. 
+        It was a bit difficult to keep the wires plugged in since the ports were those that you have to solder on before testing,
+        so a couple of minutes after some more soldering, I had a rotating motor!</p>
+        
+        <p>After initializing my pins, I created a loop that rotated the motor clockwise for 2 seconds
+        followed by a one second delay. Since the loop was set to be executed indefinitely, the motor continued rotating 
+        until I cut off the power supply.</p>
     </div>
   </div>
 </div><br><br><br>
 
-
 <div class = "container">
-            <div class="row">
-              <div class="col-sm-6">
-                <img src="motor_gif.gif" 
-                class="img-responsive" style="width:100%" alt="spinmotor">
-              </div>
-              <div class="col-sm-6">
-                <p>The motor driver unfortunately can only take two motors so I might have to use another if I do decide to continue 
-                    working on a skateboard. Fortunately, the shaft was able to spin this wooden ball that that I was about to use as 
-                    the wheels before Rob saved the day with Lego wheels! 
-                 <p>I have never been so happy for Lego wheels. Long live Lego lovers! </p>
-               
-              </div>   
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="rotating_motor.gif" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="spinmotor">
+    </div>
+    <div class="col-sm-4">
+      <img src="motor_gif.gif" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="spinmotor">    
+    </div>
+    <div class="col-sm-4">
+      <img src="rotate_motor_turn.gif" 
+      class="img-responsive" style="width:100%" alt="spinmotor"><br><br>
+      <p>Since the motor driver only takes up to two motors, I might have to make a two-wheel drive for my skateboard. However, 
+        I could also just decide to throw on another motor driver for a four-wheel drive. This would mean more added weight, 
+        which I would like to minimize, if I even do continue working on my skateboard. </p>
+        
+      <p>After seizing one of these wooden balls from the back cabinets, Fortunately, the shaft was able to spin this wooden ball that that I was about to use as 
+        the wheels before Rob saved the day with Lego wheels! </p>
+    <p>I have never been so happy for Lego wheels. Long live Lego lovers! </p>
+    </div>  
+  </div>
+</div><br><br><br>
 
-    </div><br><br><br>
-    <div class="container">
+
+<div class="container">
         <div class="row">
           <div class="col-sm-12">
               <h4>The Rotating Motor</h3>
@@ -190,3 +232,12 @@
   </footer>
 </body>
 </html>
+
+
+After connecting my Arduino to my computer, I threw on the infrared sensor onto the breadboard, gave it some power, and wallah! We had sensor 
+readings in no time! Easy.  
+</p>
+<p>Then I decided to throw on the motor. This was at first a little difficult since the motors I had took in 6V and I could only 
+output 5V from the Uno. Instead of looking for a bunch of stuff (i.e. transistors, diodes, resistors) to connect my motor, I found a motor 
+driver instead! I quickly hooked that up (even though the connections were giving me a pain) and woo -- had a spinning motor shaft! </p>
+
