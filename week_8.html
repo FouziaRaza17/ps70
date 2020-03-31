@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Week 8 - PS70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #313131;
+      padding: 25px;
+      bottom: 0
+    
+    }
+
+    .jumbotron{
+    background-color: rgb(82, 23, 23);
+    color: rgb(255, 255, 255)
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="./index.html">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="https://nathanmelenbrink.github.io/ps70/index.html">PS 70</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1 style="font-family:gerogia;">Output Devices</h1>
+    <p style="font-family:verdana;">Redemption!</pstyle="font-family:gerogia;">   
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Assignment</h3>
+        <p> This week's assignment was to use a microcontroller to operate an output device that we had not used before. </p><br>
+      <h4>Materials and Software Used</h4>
+        <p>Arduino Uno, Arduino/C, breadboard, stepper motor, motor driver, buzzer, LED strip, servo motor</p><br>
+      <h3>Background</h3>
+        <p>Output devices come in many forms such as actuators, speakers/sound synthesizers, heat, light, pneumatic valves, and even different forms of communication.
+            For class, we focused mostly on motors which we had yet to discuss and had a large supply of (servos, steppers, and DC motors).   </p><br>
+      <h3>First up, the servo! </h3>
+        <p>During class, we simply hooked up the servo to the arduino and ran the example code provided to check the degree of rotation of the servo. 
+            My servo rotated 120 degrees. To make it a little more interesting, I made the servo rotate to different angles at varying speeds.   
+        </p>
+        <p>But... time constraints! YAY! So I decided to just make a motor rotate based on values outputted by the ultrasonic sensor.
+        </p>
+    </div>
+  </div>
+</div><br>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="servo_slow.gif" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>Simple and Slow</h4><br>
+      <img src="servo_code_slow.PNG" 
+      class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-4">
+      <img src="servo_fast.gif" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>Fast and Furious</h4><br>
+      
+      <img src="servo_code_fast.PNG" 
+      class="img-responsive" style="width:100%" alt="Image">
+      </div>
+    <div class="col-sm-4">
+      <img src="serv_slow_fast.gif" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>Slow and Fast</h4><br>
+      <img src="servo_code_slow_fast.PNG" 
+      class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br><br><br><br>
+
+<div class = "container">
+  <div class="row">
+    <h3>Using an FET to switch current in one direction</h3>
+    <div class="col-sm-12">
+      <br><p>Using the tutorial online (see https://roberthart56.github.io/SCFAB/SC_lab/Output_Devices/FET/index.html), I 
+          I was able to wire the DC motor to the Uno using a transistor.  </p>
+      <img src="dc_fet_wiring.jpg" 
+      class="img-responsive" style="width:100%" alt="Image"><br>
+      <p>Much of this was just following the tutorial but I did want to explain some of the basic components of the cicruit. 
+          An FET, or a field-effect transistor, is a device in which the small current delivered to one terminal (gate or base)
+          controls a large current using the source and drain leads. Transistors are usually used as amplifiers, an example being in 
+          electrodes to record neuronal activity for EMG or ECG. We used an FET here to control a current larger than about 20mA with a 
+          microcontroller. 
+      </p> 
+    </div>
+  </div>
+</div><br><br>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img  src="fet.jpg" 
+      class="horizontalcenter; verticalcenter;" style="width:100%;transform: rotate(0deg); display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+      <p>We used the IRLD024 FETs, which can conduct up to 2.5 Amps, and can operate with drain voltage up to 60V (see tutorial page for more info). </p>
+      <img  src="fet_info.PNG" 
+      class="horizontalcenter; verticalcenter;" style="width:105%;transform: rotate(0deg);display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+    </div>
+    <div class="col-sm-4">
+      <img src="diode.jpg" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br><br>
+      <p>A diode was necessary to protect the FET from transient voltage spikes as the motor turned on and off. </p>
+      <img src="motor_code_simple.PNG" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> <br>
+      <p>And walla! A spinning motor!. </p>
+    </div>
+    <div class="col-sm-4">
+      <img src="dc_fet_vid.gif" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> <br>
+      
+    </div>
+  </div>
+</div><br>
+      
+<div class = "container">
+  <div class="row">
+    <h4>Lights, Camera, Alligator Clips! </h4><br>
+    <div class="col-sm-6">
+      <img src="LED_strip.jpg" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br>
+    </div>
+    <div class="col-sm-6">
+      <p>The LED strip tutotial was easy to follow (see https://nathanmelenbrink.github.io/ps70/08_output/led-buzzers.html). 
+          The only problem was that one of the wires was soldered onto DO (to this day I do not know that stands for unfortunately.)
+          The problem wasn't too big -- with the help of these guys:
+      </p>
+      <img src="aligator_clips.jpg" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="spinmotor">
+        
+    </div>
+  </div>
+</div><br><br><br>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="led_light.gif" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="spinmotor">    
+    </div>
+    <div class="col-sm-6">
+      <img src="aligator_din.jpg" 
+      class="img-responsive" style="width:100%" alt="spinmotor"><br>
+      <p>Using the example code from Arduino, I was able to change the color of the lights and the times at which 
+          they started to blink like crazy... </p>
+        <img src="strandtest1.PNG" 
+        class="img-responsive" style="width:100%" alt="spinmotor"><br>
+        <img src="strandtest2.PNG" 
+        class="img-responsive" style="width:100%" alt="spinmotor"><br><br>
+
+    </div>  
+  </div>
+</div><br><br><br>
+
+
+<div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+              <h4>Redemption</h3>
+                <p>After failing to make a working gear clock back in Week 3, I decided to make a timer for this assignment. 
+                    My sister also kinda wants a timer that would shut off her stove after some set time so I guess this could 
+                    come in handy later? 
+                </p>
+          </div>
+        </div>
+</div><br><br><br>
+    
+
+<div class = "container">
+    <div class="row">
+    <h4>Components Used:</h3>
+      <div class="col-sm-4">
+        <img src="stepper_rotate.gif" 
+        class="img-responsive" style="width:100%" alt="Image">
+        <h4>Stepper Motor (NEMA 17)</h4><br>
+        <img src="stepper_wires.PNG" 
+        class="img-responsive" style="width:100%;" alt="Image">
+      </div>
+      <div class="col-sm-4">
+        <img src="motor_driver.jpg" 
+        class="img-responsive" style="width:100%;" alt="Image">
+        <h4>Motor Driver (L298N)</h4><br>
+        
+        <br><br><br><br><br><img src="motor_driver1.jpg" 
+        class="img-responsive" style="width:200%; transform: rotate(90deg)" alt="Image">
+        </div>
+      <div class="col-sm-4">
+        <img src="buzzer.PNG" 
+        class="img-responsive" style="width:100%" alt="Image">
+        <h4>A simple buzzer</h4><br>
+        <br><br><br><br><br><img src="buzzer_wiring.jpg" 
+        class="img-responsive" style="width:200%; transform: rotate(90deg)" alt="Image">
+      </div>
+    </div>
+  </div><br><br><br><br>
+
+<div class = "container">
+    <div class="row">
+      <div class="col-sm-6">
+        <img  src="wire_check.gif" 
+        class="horizontalcenter; verticalcenter;" style="width:100%;transform: rotate(0deg); display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+        <p>I first had to determine which wires were A+, A-, B+, B- to connect to the output and input ports on the motor driver. I did this by throwing on an LED to two of the wires
+            and rotating the shaft  of the stepper to see if the LED lit up. In this case it did, so I connected these to out1 and out2 on the motor driver. The other two I 
+            connected to out3 and out4. </p>
+        <img  src="ab_wiring.jpg" 
+        class="horizontalcenter; verticalcenter;" style="width:105%;transform: rotate(0deg);display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+      </div>
+      <div class="col-sm-6">
+        <p>I then hooked up the input1, input2, input3, input4 pins to the Uno as shown in the image, along with the ENA and ENB pins that 
+            when run high, drove the motor pins in the output. </p>
+        <img src="stpper_wiring.jpg" 
+        class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br><br>
+        <img src="driver_connection.jpg" 
+        class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> <br>
+        <p>Although I couldn't find a wiring diagram for the pinout, I used this instead, which was quite similar.</p>
+        <img src="sample_wiring.PNG" 
+        class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> <br>
+      </div>
+    </div>
+  </div><br>
+</div><br><br><br><br><br>
+
+<div class = "container">
+    <div class="row">
+    <h4>1 Mississippi, 2 Mississippi... 15 Mississippi</h3>
+      <div class="col-sm-6">
+        <p>The goal was to make a timer that would buzz every x seconds. I decided to keep the x value here small (15 seconds)
+            for testing purposes but it could well be used for any length of time!
+        </p>
+        <img src="timer.gif" 
+        class="img-responsive" style="width:100%" alt="Image">
+      </div>
+      <div class="col-sm-6">
+        <img src="more_clock_wiring.jpg" 
+        class="img-responsive" style="width:100%;" alt="Image"><br><br>
+        <p>The timing of the buzzer was a bit annoying to calibrate. First off, I made the stepper take 200 steps per 
+            revolution with a delay that would translate to a second (after calibration this ended up being 133 ms). I basically 
+            saw what the readout of the number of steps was and made a for loop that would go through each index before buzzing at the 
+            ith index and start again (reset to zero).   </p><br>
+        <img src="stepper_code.PNG" 
+        class="img-responsive" style="width:100%; transform: rotate(00deg)" alt="Image"><br><br><br>
+
+        <p>You can't hear the buzzer unfortunately, but I can assure you that it worked!</p>
+        </div>
+    </div>
+  </div><br><br><br><br>
+
+
+
+
+<footer class="container-fluid text-center">
+    <p style='color:#ffffff;'>Powered by electricity</p>
+  
+  </footer>
+</body>
+</html>
