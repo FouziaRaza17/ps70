@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Week 9 - PS70</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #313131;
+      padding: 25px;
+      bottom: 0
+    
+    }
+
+    .jumbotron{
+    background-color: rgb(82, 23, 23);
+    color: rgb(255, 255, 255)
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="./index.html">Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="https://nathanmelenbrink.github.io/ps70/index.html">PS 70</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1 style="font-family:gerogia;">Networking and Communication</h1>
+    <p style="font-family:verdana;">Hello from the other side!</pstyle="font-family:gerogia;">   
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Assignment</h3>
+        <p> This week's assignment was to demonstrate 2 microcontrollers communicating over wired or radio connection. </p><br>
+      <h4>Materials and Software Used</h4>
+        <p>Arduino Unos, Arduino/C, nRF24 module, servo motor, LEDs </p><br>
+      <h3>Background</h3>
+        <p>Having two microcontrollers communicate with each other
+            is highly useful in remotely controlling actuators and output
+            devices. When looking at the bigger picture, it is imperative in 
+            controlling robots, setting up a home automation system, 
+            monitoring sensor data, etc.  </p>
+        <p>I first connected two microncontrollers using universal
+            asynchronous receiver-transmitter (UART), which takes bytes
+            of data and transmits the individual bits in a sequenctial 
+            fashion. Asynchronous means that the data is transferred without the need 
+            of an external clock signal. This minimizes the number of wires 
+            required for connection and I/O pins. It is therefore widely used 
+            in everyday electronics that include GPS, Bluetooth, or serial LCDs. 
+        </p>
+        <p>For both of my circuits, I wired my microncontrollers together using 
+            the RX, TX pins.A serial bus consists of two wires -- one from the sending data (TX) and  
+            another for receiving (RX). Therefore, the RX pin on the receiver should be connected to the 
+            TX pin on the transmitter and the RX pin on the transmitter should be connected to the TX pin
+            on the receiver. Since I make one solely the receiver and one just a transmitter, the serial interface 
+            was simply a half-duplex in that communication means serial devices take turns sending and 
+            receiving. 
+        </p><br>
+      <h3>Hello Received! </h3>
+        <p>Since I couldn't get my SAMD board to work (and kind of forgot tha I could have used the 
+            feather this whole time) I decided to use two Arduino boards that I had made sure to obtain
+            in the scramble to leave campus. I followed the tutorial here (https://iot-guider.com/arduino/serial-communication-between-two-arduino-boards/)
+            to learn the basics of getting two Arduno Unos to communicate with each other through the <RX>
+            pins.   
+        </p>
+        <p>Essentially, the transmitting Uno board would send out the string, "Hello" and the 
+            receiving Uno would print this out in its serial monitor, along with the string, 
+            "received." This simple project made me realize that I could have probably done this 
+            on an LCD display but since I didn't have on, I stuck to the serial monitor for this assignment. 
+        </p>
+    </div>
+  </div>
+</div><br>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Arduino Circuit for Hello Tutorial</h4><br>
+      <img src="serial_uno_circuit.PNG" 
+      class="img-responsive" style="width:100%" alt="Image">
+      <h4>Code for the Transmitter</h4><br>
+      <img src="code_3.PNG" 
+      class="img-responsive" style="width:100%" alt="Image"><br>
+      <h4>Code for the Receiver</h4><br>
+      <img src="code_4.PNG" 
+      class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-6">
+      <h4>Serial monitor prints of "Hello Received"</h4><br>
+      <img src="hello_complete.gif" 
+      class="img-responsive" style="width:100%" alt="Image">    
+  </div>
+</div><br><br><br><br>
+
+<div class = "container">
+  <div class="row">
+    <h3>Using Radio Communication to Light a Bulb!</h3>
+    <div class="col-sm-12">
+      <br><p>Using the nRF24L01+ transceiver module, I was able to make the Uno boards communicate with each other 
+          wirelessly. The module is designed to operate in 2.4 GHz worldwide ISM (Industrial, Scientific, and Medical) frequency band, which is one of the
+          bands reserved internationally for the use of unlicensed low-powered devices, and uses GFSK modulation for data transmission. 
+      </p>
+      <p>The operating voltage is from 1.9-3.6V but the logic pins are 5V tolerant, so it can be connected to the Uno without any converter. They are the most common 
+          modules used because of their low current draw (26 microamps in standby mode and 900 nanoamps at power down mode). 
+      </p>
+      <p>The transciever module communicate over a 4-pin SPI. The SPI bus uses a concept of a Master and Slave. In this exmaple,
+          the Arduino is the Master and the radio module is the slave. This module uses an on-board antenna that allows for a more compact
+          version of the breakout. The smaller antenna means a lower transmission range, allowing for communication with over a 100 meters in distance (without walls...).
+      </p>
+      <img src="radio_mod.jpg" 
+      class="img-responsive; horizontalcenter;" style="width:50%; display: block; margin-left: auto; margin-right: auto" alt="centered image">
+      <p>****I think a lot of credit probably goes to my friend Meghan for this idea. I am no owner of this and thank her wholeheartedly for 
+          saving me some time the night before. 
+      </p> 
+    </div>
+  </div>
+</div><br><br>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img  src="radio_mod_pins.PNG" 
+      class="horizontalcenter; verticalcenter;" style="width:50%;transform: rotate(0deg); display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+      <p>Using this pinout diagram, I hooked up the module to the Uno board using male head wires to the following pins in order from left to right, top to bottom: 
+          3.3V, digital 10, digital 11, (right one left empty); GND, digital 9, digital 13, and digital 12.  </p>
+      <p>I then set this up in Arduino with the following code:</p><br>
+      <h4>Transmitting Board Code</h4>
+      <img  src="setup.PNG" 
+      class="horizontalcenter; verticalcenter;" style="width:105%;transform: rotate(0deg);display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+    </div>
+    <div class="col-sm-4">
+      <h4>Transmitting Board</h4>
+      <p>I wired up the module to the same I/O pins on both the transmitter and receiver boards</p>
+      <img src="radio_transmitter.jpg" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br>
+      <h4>Receiving Board</h4>
+      <img src="radio_receiver.jpg" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> <br>
+      
+      <p> As you can see in the code to the left, radio.begin(); initiated the radio module signal and 
+          radio.openWritingPipe(address) set up the address where the data was being sent. The radio.stopListening(); command 
+        set up the module as the transmitter and the radio.startListening(); set up the receiving module. </p>
+      <h4>Receiving Board Code</h4>
+      <img src="code_5.PNG" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> 
+    </div>
+    <div class="col-sm-4">
+      <h4>Botton Wiring on the Sending Board</h4><br>
+      <img src="button.PNG" 
+      class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image">
+      <h4>LED Wiring on the Receiving Board</h4><br>
+      <img src="led_wire.PNG" 
+      class="img-responsive" style="width:50%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> 
+      
+    </div>
+  </div>
+</div><br>
+
+<div class = "container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>Transmitting Board Loop</h4>
+        <img  src="sender_loop.PNG" 
+        class="horizontalcenter; verticalcenter;" style="width:100%;transform: rotate(0deg); display: block; margin-left: auto; margin-right: auto" alt="centered image"><br><br>
+        <p>Using these loops, I then created two button states: one High and one Low. When the button was pressed (i.e. state=HIGH), the 
+            radio module would write this text and send it over to the receiver which would read the data with its radio module 
+            and determine which state the button was in with an if statement. This conditional, when true, would then turn the pin connected to the LED on HIGH if the 
+            button was pressed, thus allowing current to flow through the LED to light it up!   </p>        
+      </div>
+      <div class="col-sm-6">
+        <h4>Receiving Board Loop</h4>
+        <p>I wired up the module to the same I/O pins on both the transmitter and receiver boards</p>
+        <img src="receiver_loop.PNG" 
+        class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> 
+      </div>
+    </div>
+  </div><br>
+
+  <div class = "container">
+    <div class="row">
+      <div class="col-sm-12">
+        <br><img src="radio_led.gif" 
+        class="img-responsive; horizontalcenter;" style="width:100%; display: block; margin-left: auto; margin-right: auto" alt="centered image">
+      </div>
+    </div>
+  </div><br><br><br>
+      
+  <div class = "container">
+    <div class="row">
+      <h3>Let's Move!</h3>
+      <div class="col-sm-12">
+        <br><p>Using the same steps in the previous activity, I made a button-operated servo motor that would rotate up to 120 degrees repeatedly. 
+        </p>
+        <p>When the button was pushed, the conditional on the receiving side would write to the servo motor, causing it to rotate. This 
+            was quite simple, especially after the much of the struggle involved in trying to figure out the code for the button-operated 
+            LED was in the past. This did, however, give me an idea to do the same with DC motors (say driving a tiny robot) that could 
+            be remotely operated. Maybe to bring me water. Or a snack. From the couch to the kitchen (yeah it's about to wind down to those times...).   
+        </p>
+      </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Sending Board Code</h4>
+                <img src="code_7.PNG" 
+                class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> 
+            </div>
+            <div class="col-sm-6">
+                <h4>Receiving Board Code</h4>
+                <img src="code_6.PNG" 
+                class="img-responsive" style="width:100%; transform: rotate(0deg); display:block; margin-left: auto; margin-right: auto" alt="Image"><br> 
+            </div>
+        </div>
+    </div>
+    
+        <img src="radio_servo.gif" 
+        class="img-responsive; horizontalcenter;" style="width:100%; display: block; margin-left: auto; margin-right: auto" alt="centered image">
+        
+      </div>
+    </div>
+  </div><br><br>
+</div><br><br><br>
+
+
+
+
+
+
+<footer class="container-fluid text-center">
+    <p style='color:#ffffff;'>Powered by electricity</p>
+  
+  </footer>
+</body>
+</html>
